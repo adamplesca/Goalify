@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/goalify/css/welcomePage.css">
+    <!-- <link rel="icon" href="/goalify/images/" type="image/x-icon"> -->
     <title>Goalify - Welcome</title>
 </head>
 <body>
@@ -11,21 +12,21 @@
 
     </div>
     <div id="btnContainer">
-        <button class="homePageBtns">Goals</button>
-        <button class="homePageBtns">Stats</button>
-        <button class="homePageBtns">Settings</button>
+        <a href="goalsPage.html"><button class="homePageBtns">Goals</button></a>
+        <a href="statsPage.html"><button class="homePageBtns">Stats</button></a>
+        <a href="settingsPage.html"><button class="homePageBtns">Settings</button></a>
+        <!-- <button onclick="refreshQuote()">New Quote</button>  test btn for quote div -->
     </div>
-    <script src="/goalify/js/welcomePage.js"></script>
+    <script src="/goalify/js/welcomePage.js"></script> 
 </body>
 </html>
 
-
+    
 <!--
 
 - favicon
 - logo, click = return to homepage
-- btns styling + func
-- general nice styling
-- array of js qutoes that change once a day / on refresh.
+
+- general nice styling (finalise styling for whole website)
 
 -->
