@@ -84,7 +84,7 @@ function loadGoals() {
     if (storedGoals) {
         const goalsData = JSON.parse(storedGoals);
         
-        //for each stored goal, recreate the goal div on the page
+        //for each stored goal recreate the goal div on the page
         goalsData.forEach(goalData => {
             const goalsContainer = document.getElementById('goalsContainer');
             
@@ -94,17 +94,15 @@ function loadGoals() {
             const checkBox = document.createElement('input');
             checkBox.type = 'checkbox';
             checkBox.classList.add('goal-checkbox');
-            checkBox.checked = goalData.isChecked; // Set the checkbox state
+            checkBox.checked = goalData.isChecked; //set the checkbox state
             
             const goalTextDiv = document.createElement('div');
             goalTextDiv.classList.add('goal-text');
-            goalTextDiv.textContent = goalData.text; // Set the goal text
+            goalTextDiv.textContent = goalData.text; //set the goal text
             
-            // Append checkbox and text to the goal div
             goalDiv.appendChild(checkBox);
             goalDiv.appendChild(goalTextDiv);
             
-            // Add click event to toggle selection
             goalDiv.addEventListener('click', function() {
                 if (selectedGoals.includes(goalDiv)) {
                     selectedGoals = selectedGoals.filter(item => item !== goalDiv);
