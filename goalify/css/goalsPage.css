@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* goal div */
+#container {
+    position: fixed;
+    margin: 0.2vw;             
+    width: 28vw;                  
+    height: 99%;            
+    background-color: #f9f9f9;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* btn container div */
+#btnContainer {
+    position: relative;
+    height: 10%;                
+    border: 1px solid #0077cc;
+    background-color: #e6f2ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* div displaying goals */
+#goalsContainer {
+    position: relative;
+    height: 75%;                 
+    margin-top: 5%;
+    overflow-y: auto;
+    border: 1px solid #4caf50;
+    background-color: #f1fff1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* btns */
+.goalPageBtns {
+    width: auto;
+    padding: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* styling for the js created divs */
+.goal-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.goal-checkbox {
+    margin-right: 10px;
+}
+
+.goal-text {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+}
