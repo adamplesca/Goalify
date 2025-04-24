@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/goalify/css/.css"> <!-- add css -->
+    <link rel="stylesheet" href="/goalify/css/goalsPage.css"> <!-- add css -->
     <!-- <link rel="icon" href="/goalify/images/" type="image/x-icon"> -->
     <title>Goalify - Goals</title>
 </head>
 <body>
-
-    <script src=""></script>
+    <div id="container">
+        <div id="btnContainer">
+            <a href="welcomePage.html"><button class="goalPageBtns">Home</button></a>
+            <a href="statsPage.html"><button class="goalPageBtns">Stats</button></a>
+            <button class="goalPageBtns" id="createGoalBtn">Create Goal</button>
+            <button class="goalPageBtns" id="deleteGoalBtn">Delete Goal</button>
+<!--             <button class="goalPageBtns" id="idkGoalBtn">Random Btn</button>
+            <button class="goalPageBtns" id="idk2GoalBtn">Same Goal</button> -->
+        </div>
+        <div id="goalsContainer"></div>
+    </div>
+    <div id="calendarContainer"></div>
+    
+    <script src="/goalify/js/goalsPage.js"></script>
 </body>
 </html>
 
