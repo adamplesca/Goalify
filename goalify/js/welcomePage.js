@@ -14,30 +14,51 @@ const quotes = [
     "\"Dream big and dare to fail.\" - Norman Vaughan",
     "\"You are never too old to set another goal or to dream a new dream.\" - C.S. Lewis",
     "\"Keep your face always toward the sunshine—and shadows will fall behind you.\" - Walt Whitman",
-    "\"Your time is limited, so don’t waste it living someone else’s life.\" - Steve Jobs"
-  ];
+    "\"Your time is limited, so don't waste it living someone else's life.\" - Steve Jobs"
+];
 
 const quoteContainer = document.getElementById("quoteContainer");
 
+function getNewQuote() {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    localStorage.setItem('quoteText', randomQuote);
+    localStorage.setItem('quoteDate', new Date().toDateString()); //store only the date part
+    return randomQuote;
+}
+
 function getDailyQuote() {
-    const now = new Date();
-    const lastSaved = localStorage.getItem('quoteDate');
+    const today = new Date().toDateString();
+    const savedDate = localStorage.getItem('quoteDate');
     const savedQuote = localStorage.getItem('quoteText');
 
-    const isNewDay = !lastSaved || (new Date(lastSaved)).toDateString() !== now.toDateString();
-
-    if (isNewDay) {
-        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        localStorage.setItem('quoteText', randomQuote);
-        localStorage.setItem('quoteDate', now.toString());
-        return randomQuote;
+    if (savedDate !== today) {
+        return getNewQuote();
     }
 
     return savedQuote;
 }
 
-//display the quote when the page loads
-quoteContainer.textContent = getDailyQuote();
+function updateQuoteDisplay() {
+    quoteContainer.textContent = getDailyQuote();
+}
+
+//updates everytime the clock hits midnight
+(function scheduleMidnightUpdate() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); //midnight
+    const msUntilMidnight = midnight - now;
+
+    setTimeout(() => {
+        updateQuoteDisplay();
+        //schedule another one for the next day
+        scheduleMidnightUpdate();
+    }, msUntilMidnight);
+})();
+
+//show quote
+updateQuoteDisplay();
+
 
 
 
