@@ -6,45 +6,50 @@ let selectedGoals = [];
 //load goals from localStorage when the page loads
 window.onload = loadGoals;
 
+
 function createGoal() {
     const goalsContainer = document.getElementById('goalsContainer');
     
+    //prompt user for goal text
+    const goalText = prompt("Enter the name of your goal:");
+    if (!goalText || goalText.trim() === "") return; // Don't add empty goals
+
     //create new goal div
     const goalDiv = document.createElement('div');
     goalDiv.classList.add('goal-item');
-    
+
     //create checkbox input element
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
     checkBox.classList.add('goal-checkbox');
-    
+    checkBox.addEventListener('change', saveGoals);
+
     //create text container div
     const goalTextDiv = document.createElement('div');
     goalTextDiv.classList.add('goal-text');
-    goalTextDiv.textContent = 'Filler text for goal'; // Placeholder text
-    
+    goalTextDiv.textContent = goalText; // Use user input
+
     //add checkbox & text to the goal div
     goalDiv.appendChild(checkBox);
     goalDiv.appendChild(goalTextDiv);
-    
+
     //add click event to toggle selection (choose what goals to delete)
-    goalDiv.addEventListener('click', function() {
+    goalDiv.addEventListener('click', function () {
         if (selectedGoals.includes(goalDiv)) {
             selectedGoals = selectedGoals.filter(item => item !== goalDiv);
-            goalDiv.style.border = '1px solid #ccc'; //reset border color
+            goalDiv.style.border = '1px solid #ccc';
         } else {
             selectedGoals.push(goalDiv);
-            goalDiv.style.border = '2px solid #0077cc'; //highlight selected goal
+            goalDiv.style.border = '2px solid #0077cc';
         }
     });
-    
+
     //add the new goal div to the container
     goalsContainer.appendChild(goalDiv);
-    
+
     //save the new goal to localStorage
     saveGoals();
 }
-
 function deleteGoals() {
     if (selectedGoals.length > 0) {
         //remove selected goals from DOM & localStorage
@@ -95,6 +100,7 @@ function loadGoals() {
             checkBox.type = 'checkbox';
             checkBox.classList.add('goal-checkbox');
             checkBox.checked = goalData.isChecked; //set the checkbox state
+            checkBox.addEventListener('change', saveGoals);
             
             const goalTextDiv = document.createElement('div');
             goalTextDiv.classList.add('goal-text');
