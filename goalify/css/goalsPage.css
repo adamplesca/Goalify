@@ -37,7 +37,7 @@ body {
 #goalsContainer {
     position: relative;
     height: 75%;                 
-    margin-top: 5%;
+    margin-top: 10px;
     overflow-y: auto;
     border: 1px solid #4caf50;
     background-color: #f1fff1;
@@ -78,4 +78,17 @@ body {
     flex: 1;
     font-size: 1rem;
     color: #333;
+}
+
+#goalsTrackerContainer {
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff8dc;
+    border: 1px solid #ffcc00;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: #000000;
 }
