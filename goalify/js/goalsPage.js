@@ -22,7 +22,10 @@ function createGoal() {
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
     checkBox.classList.add('goal-checkbox');
-    checkBox.addEventListener('change', saveGoals);
+    checkBox.addEventListener('change', () => {
+        saveGoals();
+        updateGoalStats();
+    });
 
     //create text container div
     const goalTextDiv = document.createElement('div');
@@ -47,8 +50,9 @@ function createGoal() {
     //add the new goal div to the container
     goalsContainer.appendChild(goalDiv);
 
-    //save the new goal to localStorage
+    //save the new goal to localStorage + update tracker
     saveGoals();
+    updateGoalTracker();
 }
 function deleteGoals() {
     if (selectedGoals.length > 0) {
@@ -57,7 +61,8 @@ function deleteGoals() {
             goal.remove();
         });
         selectedGoals = []; //reset selected goals array
-        saveGoals(); //update localStorage after deletion
+        saveGoals(); //update localStorage after deletion + update tracker
+        updateGoalTracker();
     } else {
         alert("Please select at least one goal to delete.");
     }
@@ -100,7 +105,10 @@ function loadGoals() {
             checkBox.type = 'checkbox';
             checkBox.classList.add('goal-checkbox');
             checkBox.checked = goalData.isChecked; //set the checkbox state
-            checkBox.addEventListener('change', saveGoals);
+            checkBox.addEventListener('change', () => {
+                saveGoals();
+                updateGoalStats();
+            });
             
             const goalTextDiv = document.createElement('div');
             goalTextDiv.classList.add('goal-text');
@@ -123,4 +131,24 @@ function loadGoals() {
             goalsContainer.appendChild(goalDiv);
         });
     }
+    updateGoalTracker();
 }
+
+function updateGoalTracker() {
+    const goalsContainer = document.getElementById('goalsContainer');
+    const allGoals = goalsContainer.getElementsByClassName('goal-item');
+
+    let total = allGoals.length;
+    let completed = 0;
+
+    for (let goal of allGoals) {
+        const checkbox = goal.querySelector('.goal-checkbox');
+        if (checkbox && checkbox.checked) {
+            completed++;
+        }
+    }
+
+    const trackerDiv = document.getElementById('goalsTrackerContainer');
+    trackerDiv.textContent = `Goals Completed: ${completed}/${total}`;
+}
+
