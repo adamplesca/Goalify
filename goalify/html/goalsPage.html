@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/goalify/css/goalsPage.css"> <!-- add css -->
+    <link rel="stylesheet" href="/goalify/css/goalsPage.css"> 
+    <link rel="stylesheet" href="/goalify/css/calender.css">
     <!-- <link rel="icon" href="/goalify/images/" type="image/x-icon"> -->
     <title>Goalify - Goals</title>
 </head>
@@ -20,22 +21,21 @@
         <div id="goalsContainer"></div>
         <div id="goalsTrackerContainer">Goals Completed: 0/0</div>
     </div>
-    <div id="calendarContainer"></div>
+    <div id="calendarContainer">
+        <div id="calendarHeader"></div>
+        <div id="calendar"></div>
+    </div>
     
     <script src="/goalify/js/goalsPage.js"></script>
+    <script src="/goalify/js/calendar.js"></script>
 </body>
 </html>
 
 
 <!--
 
-- information on the goal if needed (maybe icons too)
-- add time duration for goal to be complete, daily, weekly etc (daily for now)
 - save info of completed goal, failed goal etc (boolean completed maybe) and parse to json data to be able to be visualised on stats page somehow
 
 - remove change outline for when checking a tickbox
-
-- add calender to right hand side
-- make caldendar have a num show of how many goals need to be completed on that day
 
 --> 
