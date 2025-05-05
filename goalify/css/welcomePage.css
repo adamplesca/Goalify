@@ -1,31 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); /*font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  color: rgb(0, 0, 0);
+  background-color: #f5f5f5;
+  color: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  gap: 50px; /* space between div1 and button group */
+  gap: 50px;
 }
 
+/* Welcome Page Quote Box */
 #quoteContainer {
   width: 90%;
-  height: 80%;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
   padding: 20px 30px;
   text-align: center;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #444;
   border-radius: 10px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
+/* Home Page Button Group */
 #btnContainer {
   display: flex;
   flex-direction: column;
@@ -34,19 +35,19 @@ body {
 }
 
 .homePageBtns {
-  width: 200px;
+  width: 300px;
   padding: 12px 0;
   font-size: 2rem;
   font-weight: 600;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: none;
+  background-color: #ffffff;
+  color: #111;
+  border: 2px solid #444;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .homePageBtns:hover {
-  background-color: rgb(255, 251, 232);
+  background-color: #dcdcdc;
   transform: scale(1.05);
 }

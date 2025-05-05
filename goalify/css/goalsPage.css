@@ -1,94 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-}
-
-/* goal div */
 #container {
     position: fixed;
-    margin: 0.2vw;             
-    width: 28vw;                  
-    height: 99%;            
-    background-color: #f9f9f9;
-    border: 1px solid #000;
+    margin: 0.2vw;
+    width: 28vw;
+    height: 99%;
+    background-color: #f0f0f0;
+    border: 1px solid #333;
     box-sizing: border-box;
     padding: 20px;
-}
-
-/* btn container div */
-#btnContainer {
+  }
+  
+  /* Goal Action Buttons */
+  #btnContainer {
     position: relative;
-    height: 10%;                
-    border: 1px solid #0077cc;
-    background-color: #e6f2ff;
+    height: 10%;
+    border: 1px solid #555;
+    background-color: #eaeaea;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
-}
-
-/* div displaying goals */
-#goalsContainer {
-    position: relative;
-    height: 75%;                 
-    margin-top: 10px;
-    overflow-y: auto;
-    border: 1px solid #4caf50;
-    background-color: #f1fff1;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* btns */
-.goalPageBtns {
-    width: auto;
-    padding: 12px;
-    font-size: 1.3rem;
+  }
+  
+  .goalPageBtns {
+    padding: 10px 15px;
+    font-size: 1.1rem;
     font-weight: 600;
     background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 8px;
+    color: #111;
+    border: 1px solid #555;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* styling for the js created divs */
-.goal-item {
+  }
+  
+  .goalPageBtns:hover {
+    background-color: #d1d1d1;
+    transform: scale(1.03);
+  }
+  
+  /* Goals Display Container */
+  #goalsContainer {
+    position: relative;
+    height: 75%;
+    margin-top: 10px;
+    overflow-y: auto;
+    border: 1px solid #666;
+    background-color: #f9f9f9;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Individual Goal Items */
+  .goal-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border: 1px solid #aaa;
     border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.goal-checkbox {
+    background-color: #ffffff;
+  }
+  
+  .goal-checkbox {
     margin-right: 10px;
-}
-
-.goal-text {
+  }
+  
+  .goal-text {
     flex: 1;
     font-size: 1rem;
-    color: #333;
-}
-
-#goalsTrackerContainer {
+    color: #222;
+  }
+  
+  /* Goals Tracker at Bottom */
+  #goalsTrackerContainer {
     position: relative;
     margin-top: 10px;
     padding: 10px;
-    background-color: #fff8dc;
-    border: 1px solid #ffcc00;
+    background-color: #eeeeee;
+    border: 1px solid #999;
     font-weight: 600;
     text-align: center;
     border-radius: 5px;
-    font-size: 2rem;
-    color: #000000;
-}
+    font-size: 1.5rem;
+    color: #111;
+  }
