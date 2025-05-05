@@ -13,12 +13,31 @@ const quotes = [
     "\"What lies behind us and what lies before us are tiny matters compared to what lies within us.\" - Ralph Waldo Emerson",
     "\"Dream big and dare to fail.\" - Norman Vaughan",
     "\"You are never too old to set another goal or to dream a new dream.\" - C.S. Lewis",
-    "\"Keep your face always toward the sunshine—and shadows will fall behind you.\" - Walt Whitman",
-    "\"Your time is limited, so don't waste it living someone else's life.\" - Steve Jobs"
+    "\"Keep your face always toward the sunshine, and shadows will fall behind you.\" - Walt Whitman",
+    "\"Your time is limited, so don't waste it living someone else's life.\" - Steve Jobs",
+    "\"The best way to predict the future is to invent it.\" - Alan Kay",
+    "\"If you want to go fast, go alone. If you want to go far, go together.\" - African Proverb",
+    "\"Do not wait for the perfect moment, take the moment and make it perfect.\" - Unknown",
+    "\"I am not a product of my circumstances. I am a product of my decisions.\" - Stephen R. Covey",
+    "\"Don't count the days, make the days count.\" - Muhammad Ali",
+    "\"Discipline is the bridge between goals and accomplishment.\" - Jim Rohn",
+    "\"Happiness is not something ready-made. It comes from your own actions.\" - Dalai Lama",
+    "\"You miss 100% of the shots you don't take.\" - Wayne Gretzky",
+    "\"Opportunities don't happen. You create them.\" - Chris Grosser",
+    "\"It always seems impossible until it's done.\" - Nelson Mandela",
+    "\"Success usually comes to those who are too busy to be looking for it.\" - Henry David Thoreau",
+    "\"Push yourself, because no one else is going to do it for you.\" - Unknown",
+    "\"Great things never come from comfort zones.\" - Unknown",
+    "\"Don't limit your challenges. Challenge your limits.\" - Jerry Dunn",
+    "\"Small deeds done are better than great deeds planned.\" - Peter Marshall",
+    "\"You don't have to be great to start, but you have to start to be great.\" - Zig Ziglar",
+    "\"Success is walking from failure to failure with no loss of enthusiasm.\" - Winston Churchill",
+    "\"It's not whether you get knocked down, it's whether you get up.\" - Vince Lombardi"
 ];
 
 const quoteContainer = document.getElementById("quoteContainer");
 
+//randomly chooses a quote
 function getNewQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     localStorage.setItem('quoteText', randomQuote);
@@ -60,10 +79,10 @@ function updateQuoteDisplay() {
 updateQuoteDisplay();
 
 
-
+/* 
 
 //code to test refresh of function div
-/* 
+
 function refreshQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     document.getElementById('quoteContainer').innerText = quotes[randomIndex];
@@ -71,5 +90,7 @@ function refreshQuote() {
     
 refreshQuote(); //initial quote load
 
-setInterval(refreshQuote, 5000); //refresh every 5 seconds
+setInterval(refreshQuote, 5000); //refresh every 5 seconds 
+
+
 */
