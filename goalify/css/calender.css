@@ -1,21 +1,16 @@
-/* styling for calendar portion */
 #calendarContainer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 26vw;
-    height: 99%;
-    padding: 20px;
-    margin: 0.2vw;  
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
     background-color: #d8d8d8;
     border: 1px solid #000000;
     box-sizing: border-box;
 }
 
 #calendarHeader {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -26,7 +21,6 @@
     font-size: 1.2rem;
     text-align: center;
 }
-
 .calendar-day {
     padding: 10px;
     border-radius: 5px;
@@ -36,24 +30,17 @@
 
 
 .calendar-success {
-    background-color: #b2f2bb; /* light green */
+    background-color: #b2f2bb;
     border: 2px solid #2b8a3e;
 }
 
 .calendar-failure {
-    background-color: #ffb3b3; /* light red */
+    background-color: #ffb3b3; 
     border: 2px solid #d90429;
 }
 
 .calendar-today {
-    background-color: #d3d3d3; /* light grey */
+    background-color: #d3d3d3;
     border: 2px solid #000000;
     font-weight: bold;
 }
-
-
-/* .today {
-    background-color: #ffd595;
-    border: 2px solid #c76300;
-    font-weight: bold;
-} */
