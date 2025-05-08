@@ -117,7 +117,7 @@ function loadGoals() {
                     goalDiv.style.border = '1px solid #ccc';  
                 } else {
                     selectedGoals.push(goalDiv);
-                    goalDiv.style.border = '2px solid rgb(255, 0, 0)';  
+                    goalDiv.style.border = '1px solid rgb(255, 0, 0)';  
                 }
             });
 

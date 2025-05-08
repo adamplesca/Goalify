@@ -14,7 +14,6 @@ function generateCalendar() {
     calendarHeader.textContent = `${monthNames[month]} ${year}`;
     calendar.innerHTML = '';
 
-    // Add weekday headers
     daysOfWeek.forEach(day => {
         const dayElem = document.createElement('div');
         dayElem.classList.add('calendar-day');
@@ -26,7 +25,6 @@ function generateCalendar() {
     const firstDay = new Date(year, month, 1).getDay();
     const totalDays = new Date(year, month + 1, 0).getDate();
 
-    // Blank cells before first day
     for (let i = 0; i < firstDay; i++) {
         const emptyCell = document.createElement('div');
         calendar.appendChild(emptyCell);

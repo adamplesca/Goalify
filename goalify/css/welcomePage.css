@@ -17,10 +17,10 @@ body {
 #quoteContainer {
   width: 90%;
   max-width: 1000px;
-  background-color: #e6e6e6;
+  background-color: #ffffff;
   padding: 20px 30px;
   text-align: center;
-  border: 1px solid #444;
+  border: 2px solid #444;
   border-radius: 10px;
   font-size: 1.7rem;
 }
