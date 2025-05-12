@@ -6,6 +6,7 @@ let selectedGoals = [];
 window.onload = () => {
     loadGoals();  
     scheduleMidnightReset();
+    logMissedDay();
 };
 
 //create a new goal div with savable checkbox & custom goal name
@@ -154,7 +155,7 @@ function scheduleMidnightReset() {
     midnight.setHours(24, 0, 0, 0); //set time to midnight
 
     const logTime = new Date(midnight);
-    logTime.setMinutes(logTime.getMinutes() - 1); //1 min before midnight to log results
+    logTime.setMinutes(logTime.getMinutes() - 10); //10 min before midnight to log results
 
     const timeUntilLog = logTime - now;
     const timeUntilReset = midnight - now;
@@ -172,7 +173,7 @@ function scheduleMidnightReset() {
 }
 
 //log the results of the goals at midnight
-function logDailyResults() {
+function logDailyResults(date = new Date()) {
     const goalsContainer = document.getElementById('goalsContainer');
     const goalDivs = goalsContainer.getElementsByClassName('goal-item');
 
@@ -182,17 +183,28 @@ function logDailyResults() {
     for (let goalDiv of goalDivs) {
         const checkbox = goalDiv.querySelector('.goal-checkbox');
         if (checkbox && checkbox.checked) {
-            completed++;  //count completed goals
+            completed++;
         }
     }
 
-    const now = new Date();
-    const key = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;  //key for todays date
-    const result = (total > 0 && completed === total) ? 'success' : 'failure';  //check if all goals are completed
+    const key = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    const result = (total > 0 && completed === total) ? 'success' : 'failure';
 
     let goalResults = JSON.parse(localStorage.getItem('goalResults') || '{}');
-    goalResults[key] = result;  //store todays result
-    localStorage.setItem('goalResults', JSON.stringify(goalResults));  //save to localStorage
+    goalResults[key] = result;
+    localStorage.setItem('goalResults', JSON.stringify(goalResults));
+}
+
+function logMissedDay() {
+    const now = new Date();
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const key = `${yesterday.getFullYear()}-${yesterday.getMonth()}-${yesterday.getDate()}`;
+
+    let goalResults = JSON.parse(localStorage.getItem('goalResults') || '{}');
+    if (!goalResults[key]) {
+        logDailyResults(yesterday);
+    }
 }
 
 //reset all daily goals (uncheck all checkboxes)
