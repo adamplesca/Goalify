@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/goalify/css/calender.css">
-    <link rel="stylesheet" href="/goalify/css/.css">
+    <link rel="stylesheet" href="/goalify/css/statsPage.css">
     <link rel="icon" href="/goalify/images/fav.png" type="image/png">
     <title>GOALIFY - Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="calendarContainer">
+    <!--     <div id="calendarContainer">
         <div id="calendarHeader"></div>
         <div id="calendar"></div>
+    </div> -->
+    <div id="container">
+        <div id="sidebar">
+            <a href="welcomePage.html"><button class="goalPageBtns">Home</button></a>
+            <a href="goalsPage.html"><button class="goalPageBtns">Goals</button></a>
+            <!-- <button class="goalPageBtns" id="">Weekly Progress</button> 
+            <button class="goalPageBtns" id="">Month Progress</button>-->
+            <button class="goalPageBtns" id="yearlyStats">Yearly Overview</button>
+        </div>
+
+        <div id="contentArea">
+            <div id="btnContainer">
+                <!-- <button id="toggleYearlyStatsBtn" class="goalPageBtns">Show Yearly Progress</button> -->
+            </div>
+            <div id="dataContainer">
+                <canvas id="yearlyStatsChart"></canvas>
+            </div>
+        </div>
     </div>
-    
+
     <script src="/goalify/js/goalsPage.js"></script>
     <script src="/goalify/js/statsPage.js"></script>
     <script src="/goalify/js/calendar.js"></script>
 </body>
 </html>
-
-
-<!--
-
-- 2d charts to visulaise progress
-- days of weeks, small calander maybe
-- be able to go back in "time" to see how youve compare, based off days of certain goials weeks etc
-- test how i could perform this
-
--->
