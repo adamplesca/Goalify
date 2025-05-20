@@ -92,5 +92,4 @@ refreshQuote(); //initial quote load
 
 setInterval(refreshQuote, 5000); //refresh every 5 seconds 
 
-
 */
