@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .instruction-section {
+    width: 90%;
+    max-width: 1000px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .instruction-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  
+  .instruction-section p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .color-sample {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 1px solid #555;
+  }
+  
+  .green { background-color: green; }
+  .red { background-color: red; }
+  .gray { background-color: #d3d3d3; }
+  
+  @media (max-width: 600px) {
+    .instruction-section {
+      padding: 15px 20px;
+    }
+  }
+  
