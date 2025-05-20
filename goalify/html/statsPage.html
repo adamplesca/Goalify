@@ -10,31 +10,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!--     <div id="calendarContainer">
-        <div id="calendarHeader"></div>
-        <div id="calendar"></div>
-    </div> -->
     <div id="container">
         <div id="sidebar">
             <a href="welcomePage.html"><button class="goalPageBtns">Home</button></a>
             <a href="goalsPage.html"><button class="goalPageBtns">Goals</button></a>
-            <!-- <button class="goalPageBtns" id="">Weekly Progress</button> 
-            <button class="goalPageBtns" id="">Month Progress</button>-->
             <button class="goalPageBtns" id="yearlyStats">Yearly Overview</button>
+            <!-- <button class="goalPageBtns" id="">Export data</button> 
+            <button class="goalPageBtns" id="">Import data</button>
+            <button class="goalPageBtns" id="">Wipe Data</button> -->
         </div>
-
         <div id="contentArea">
-            <div id="btnContainer">
-                <!-- <button id="toggleYearlyStatsBtn" class="goalPageBtns">Show Yearly Progress</button> -->
-            </div>
             <div id="dataContainer">
                 <canvas id="yearlyStatsChart"></canvas>
             </div>
         </div>
     </div>
-
-    <script src="/goalify/js/goalsPage.js"></script>
+    
+    <script src="/goalify/js/goalsPage.js"></script> 
     <script src="/goalify/js/statsPage.js"></script>
-    <script src="/goalify/js/calendar.js"></script>
 </body>
 </html>
