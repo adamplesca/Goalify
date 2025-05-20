@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="goalify/images/logo.png" alt="Logo" width="400"/>
+  <img src="Project Logo - GOALIFY.JPG" alt="Logo" width="400"/>
 </p>
 
 <br/>
