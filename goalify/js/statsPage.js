@@ -69,7 +69,7 @@ function generateYearlyStatsChart(canvas) {
         const [year, month] = key.split('-').map(Number);
         if (year === currentYear) {
             monthlyCounts[month - 1].total++; //count the logs for every month
-            if (goalResults[key] === 'success') {
+            if (goalResults[key] === 's') {
                 monthlyCounts[month - 1].success++; //count successful logs
             }
         }

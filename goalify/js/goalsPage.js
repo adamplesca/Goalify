@@ -46,9 +46,9 @@ function generateCalendar() {
 
         if (day === today) {
             dayElem.classList.add('calendar-today');
-        } else if (result === 'success') {
+        } else if (result === 's') {
             dayElem.classList.add('calendar-success');
-        } else if (result === 'failure') {
+        } else if (result === 'f') {
             dayElem.classList.add('calendar-failure');
         }
 
@@ -228,7 +228,7 @@ function logDailyResults(date = new Date()) {
     }
 
     const percentage = total > 0 ? (completed / total) * 100 : 0;
-    const result = percentage === 100 ? 'success' : 'failure';
+    const result = percentage === 100 ? 's' : 'f';
 
     const goalResults = JSON.parse(localStorage.getItem('goalResults') || '{}');
     goalResults[`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`] = result;
