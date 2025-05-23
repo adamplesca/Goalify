@@ -34,7 +34,7 @@ function importData() {
         reader.onload = (e) => {
             try {
                 const data = JSON.parse(e.target.result);
-                if (data.goals && data.goalResults) { 
+                if (data.goals && data.goalResults) {
                     localStorage.setItem('goals', JSON.stringify(data.goals));
                     localStorage.setItem('goalResults', JSON.stringify(data.goalResults));
                     location.reload(); //refresh UI
@@ -132,7 +132,7 @@ function generateYearlyStatsChart(canvas) {
     });
 }
 
-
+//fully generates yearly calendar w/ users data displayed
 function generateFullYearCalendar() {
     const container = document.getElementById('yearlyCalendarContainer');
     container.innerHTML = '';
@@ -157,7 +157,6 @@ function generateFullYearCalendar() {
         const grid = document.createElement('div');
         grid.className = 'month-grid';
 
-        // day headers
         dayLabels.forEach(day => {
             const dayCell = document.createElement('div');
             dayCell.style.fontWeight = 'bold';
@@ -169,7 +168,7 @@ function generateFullYearCalendar() {
         const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
 
         for (let i = 0; i < firstDay; i++) {
-            grid.appendChild(document.createElement('div')); //empty divs
+            grid.appendChild(document.createElement('div'));
         }
 
         for (let day = 1; day <= daysInMonth; day++) {
@@ -179,11 +178,11 @@ function generateFullYearCalendar() {
             const result = goalResults[key];
 
             if (dateObj > today) {
-                dayElem.className = 'calendar-futureE';
+                dayElem.className = 'yr-calendar-future';
             } else if (result === 's') {
-                dayElem.className = 'calendar-successS';
+                dayElem.className = 'yr-calendar-success';
             } else if (result === 'f') {
-                dayElem.className = 'calendar-failureE';
+                dayElem.className = 'yr-calendar-failure';
             }
 
             dayElem.textContent = day;
@@ -198,20 +197,41 @@ function generateFullYearCalendar() {
 //dom setup for event listeners & displaying canvas 
 document.addEventListener('DOMContentLoaded', () => {
     const chartCanvas = document.getElementById('yearlyStatsChart');
+    const calendarContainer = document.getElementById('yearlyCalendarContainer');
     let chartInstance = null;
 
+    //chart toggle btn
     const toggleBtn = document.getElementById('yearlyStats');
-    if (toggleBtn && chartCanvas) {
+    if (toggleBtn && chartCanvas && calendarContainer) {
         toggleBtn.addEventListener('click', () => {
-            const isHidden = getComputedStyle(chartCanvas).display === 'none';
+            const isChartHidden = getComputedStyle(chartCanvas).display === 'none';
 
-            if (isHidden) {
+            if (isChartHidden) {
+                // Show chart, hide calendar
                 chartCanvas.style.display = 'block';
+                calendarContainer.style.display = 'none';
+
                 if (!chartInstance) {
                     chartInstance = generateYearlyStatsChart(chartCanvas);
                 }
             } else {
                 chartCanvas.style.display = 'none';
+            }
+        });
+    }
+
+    //calendar toggle btn
+    const calendarBtn = document.getElementById('yearlyCalendarBtn');
+    if (calendarBtn && calendarContainer && chartCanvas) {
+        calendarBtn.addEventListener('click', () => {
+            const isCalendarHidden = calendarContainer.style.display === 'none';
+            //prevents chart overlap
+            if (isCalendarHidden) {
+                generateFullYearCalendar();
+                calendarContainer.style.display = 'flex';
+                chartCanvas.style.display = 'none';
+            } else {
+                calendarContainer.style.display = 'none';
             }
         });
     }
@@ -224,17 +244,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (exportBtn) exportBtn.addEventListener('click', exportData);
     if (importBtn) importBtn.addEventListener('click', importData);
     if (wipeBtn) wipeBtn.addEventListener('click', wipeData);
-});
-
-
-document.getElementById('yearlyCalendarBtn').addEventListener('click', () => {
-    const container = document.getElementById('yearlyCalendarContainer');
-    const isHidden = container.style.display === 'none';
-
-    if (isHidden) {
-        generateFullYearCalendar();
-        container.style.display = 'flex';
-    } else {
-        container.style.display = 'none';
-    }
 });
