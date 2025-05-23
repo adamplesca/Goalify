@@ -1,5 +1,6 @@
 //export data from localStorage to a downloadable json file
 function exportData() {
+    const currentYear = new Date().getFullYear();
     const data = {
         goals: JSON.parse(localStorage.getItem('goals') || '[]'),
         goalResults: JSON.parse(localStorage.getItem('goalResults') || '{}')
@@ -12,7 +13,7 @@ function exportData() {
     //make temp url & download link
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'goal_data_backup.json'; //sets name
+    link.download = `Goal_Data_${currentYear}.json`; //sets name
     link.click();
 
     URL.revokeObjectURL(url);
@@ -131,6 +132,69 @@ function generateYearlyStatsChart(canvas) {
     });
 }
 
+
+function generateFullYearCalendar() {
+    const container = document.getElementById('yearlyCalendarContainer');
+    container.innerHTML = '';
+
+    const goalResults = JSON.parse(localStorage.getItem('goalResults') || '{}');
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const today = new Date(currentYear, now.getMonth(), now.getDate());
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const dayLabels = ["S", "M", "T", "W", "T", "F", "S"];
+
+    for (let month = 0; month < 12; month++) {
+        const monthDiv = document.createElement('div');
+        monthDiv.className = 'month-calendar';
+
+        const header = document.createElement('div');
+        header.className = 'month-header';
+        header.textContent = monthNames[month];
+        monthDiv.appendChild(header);
+
+        const grid = document.createElement('div');
+        grid.className = 'month-grid';
+
+        // day headers
+        dayLabels.forEach(day => {
+            const dayCell = document.createElement('div');
+            dayCell.style.fontWeight = 'bold';
+            dayCell.textContent = day;
+            grid.appendChild(dayCell);
+        });
+
+        const firstDay = new Date(currentYear, month, 1).getDay();
+        const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
+
+        for (let i = 0; i < firstDay; i++) {
+            grid.appendChild(document.createElement('div')); //empty divs
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElem = document.createElement('div');
+            const key = `${currentYear}-${month + 1}-${day}`;
+            const dateObj = new Date(currentYear, month, day);
+            const result = goalResults[key];
+
+            if (dateObj > today) {
+                dayElem.className = 'calendar-futureE';
+            } else if (result === 's') {
+                dayElem.className = 'calendar-successS';
+            } else if (result === 'f') {
+                dayElem.className = 'calendar-failureE';
+            }
+
+            dayElem.textContent = day;
+            grid.appendChild(dayElem);
+        }
+
+        monthDiv.appendChild(grid);
+        container.appendChild(monthDiv);
+    }
+}
+
 //dom setup for event listeners & displaying canvas 
 document.addEventListener('DOMContentLoaded', () => {
     const chartCanvas = document.getElementById('yearlyStatsChart');
@@ -160,4 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (exportBtn) exportBtn.addEventListener('click', exportData);
     if (importBtn) importBtn.addEventListener('click', importData);
     if (wipeBtn) wipeBtn.addEventListener('click', wipeData);
+});
+
+
+document.getElementById('yearlyCalendarBtn').addEventListener('click', () => {
+    const container = document.getElementById('yearlyCalendarContainer');
+    const isHidden = container.style.display === 'none';
+
+    if (isHidden) {
+        generateFullYearCalendar();
+        container.style.display = 'flex';
+    } else {
+        container.style.display = 'none';
+    }
 });
