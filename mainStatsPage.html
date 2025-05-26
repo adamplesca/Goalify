@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/mainCalender.css">
+    <link rel="stylesheet" href="/mainStatsPage.css">
+    <link rel="icon" href="/images/fav.png" type="image/png">
+    <title>GOALIFY - Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <a href="mainWelcomePage.html"><button class="goalPageBtns">Home</button></a>
+            <a href="mainGoalsPage.html"><button class="goalPageBtns">Goals</button></a>
+            <button class="goalPageBtns" id="yearlyStats">Yearly Overview</button>
+            <button class="goalPageBtns" id="yearlyCalendarBtn">Full Year Calendar</button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="spaceBtns"></button>
+            <button class="goalPageBtns" id="exportDataBtn">Export Data</button>
+            <button class="goalPageBtns" id="importDataBtn">Import Data</button>
+            <button class="goalPageBtns" id="wipeDataBtn">Delete Data</button>
+        </div>
+        <div id="contentArea">
+            <div id="dataContainer">
+                <canvas id="yearlyStatsChart"></canvas>
+                <div id="yearlyCalendarContainer" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/mainStatsPage.js"></script>
+</body>
+</html>
