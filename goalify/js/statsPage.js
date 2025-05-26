@@ -134,6 +134,7 @@ function generateYearlyStatsChart(canvas) {
 
 //fully generates yearly calendar w/ users data displayed
 function generateFullYearCalendar() {
+
     const container = document.getElementById('yearlyCalendarContainer');
     container.innerHTML = '';
 
