@@ -43,7 +43,8 @@
 
 /* goal div container */
 #goalsContainer {
-  flex: 1; /* fills space between btns & tracker */
+  flex: 1;
+  /* fills space between btns & tracker */
   overflow-y: auto;
   margin-top: 10px;
   border: 1px solid #666;
@@ -85,4 +86,56 @@
   border-radius: 5px;
   font-size: 1.5rem;
   color: #111;
+}
+
+
+/* laptop size styling */
+@media only screen and (max-width: 1800px) and (max-height: 900px) {
+  #btnContainer {
+    padding: 0px;
+  }
+  .goalPageBtns {
+    font-size: 1rem;
+    padding: 5px 14px;
+  }
+}
+
+@media only screen and (max-width: 1500px) and (max-height: 900px) {
+  #btnContainer {
+    padding: 0px;
+  }
+  .goalPageBtns {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+}
+
+/* ipad size atyling */
+@media only screen and (max-width: 1200px) and (max-height: 900px) {
+  #container {
+    width: auto;
+    height: auto;
+  }
+  #btnContainer {
+    padding: 0px;
+  }
+  .goalPageBtns {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+}
+
+/* phone size atyling */
+@media only screen and (max-width: 500px) and (max-height: 900px) {
+  #container {
+    width: auto;
+    height: auto;
+  }
+  #btnContainer {
+    padding: 0px;
+  }
+  .goalPageBtns {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
 }
