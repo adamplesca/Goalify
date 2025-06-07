@@ -75,21 +75,26 @@ function updateQuoteDisplay() {
     }, msUntilMidnight);
 })();
 
+//shows days completed 
+function displayCompletedDaysCount() {
+    const goalResults = JSON.parse(localStorage.getItem('goalResults') || '{}');
+    let completedCount = 0;
+
+    for (let date in goalResults) {
+        if (goalResults[date] === 's') {
+            completedCount++;
+        }
+    }
+
+    const countElem = document.getElementById('completeDaysContainer');
+    if (countElem) {
+        countElem.textContent = `Days Fully Completed: ${completedCount}/365`;
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    displayCompletedDaysCount();
+});
+
 //show quote
 updateQuoteDisplay();
-
-
-/* 
-
-//code to test refresh of function div
-
-function refreshQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    document.getElementById('quoteContainer').innerText = quotes[randomIndex];
-}
-    
-refreshQuote(); //initial quote load
-
-setInterval(refreshQuote, 5000); //refresh every 5 seconds 
-
-*/
