@@ -99,7 +99,7 @@
 }
 
 /* laptop size styling */
-@media only screen and (max-width: 1800px) and (max-height: 900px) {
+@media only screen and (max-width: 1800px) {
     #calendar {
         gap: 5px;
         font-size: 1rem;
@@ -107,7 +107,7 @@
 }
 
 /* phone size atyling */
-@media only screen and (max-width: 1300px) and (max-height: 900px) {
+@media only screen and (max-width: 1300px) {
     #calendar {
         gap: 0px;
         font-size: 0.75rem;
